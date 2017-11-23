@@ -23,7 +23,7 @@
 		var options = $.extend({}, defaults, options);
 		slideArr = {
 			area : slideObj,
-			areaWidth : slideObj.width(),
+			areaWidth : slideObj.innerWidth(),
 			wrap : null,
 			list : slideObj.find(".slide-list"),
 			listLength : slideObj.find(".slide-list").find(".slide-item").length,
@@ -54,12 +54,13 @@
 		}
 
 		slideArr.area.mouseenter(function(){
+			console.log(slideArr.areaWidth);
 			/* Array Update */
 			slideArr.area = slideObj;
 			slideArr.list = slideArr.area.find(".slide-list");
 			slideArr.item = slideArr.list.find(".slide-item");
 
-			slideArr.areaWidth = slideArr.area.width();
+			slideArr.areaWidth = slideArr.area.innerWidth();
 			slideArr.listLength = slideArr.item.length;
 
 			slideArr.area.on("mousemove", function(e){
